@@ -1,11 +1,12 @@
 services:
   - type: web
     name: student-management-backend
-    env: node
+    runtime: node
     region: oregon
     plan: free
-    buildCommand: cd backend/server && npm install
-    startCommand: cd backend/server && npm start
+    rootDir: backend/server
+    buildCommand: npm install
+    startCommand: node server.js
     envVars:
       - key: NODE_ENV
         value: production
