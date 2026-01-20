@@ -80,9 +80,9 @@ export default function CoursesPage() {
 
   const handleEdit = (course: any) => {
     setEditingCourse(course)
-    setFormData({ 
-      title: course.title, 
-      description: course.description, 
+    setFormData({
+      title: course.title,
+      description: course.description,
       duration: course.duration,
       fee: course.fee?.toString() || '',
       facultyId: course.facultyId?._id || course.facultyId || '',
@@ -140,7 +140,7 @@ export default function CoursesPage() {
             <DialogTrigger asChild>
               <Button onClick={() => {
                 setEditingCourse(null)
-                setFormData({ title: '', description: '', duration: '' })
+                setFormData({ title: '', description: '', duration: '', fee: '', facultyId: '', capacity: '' })
               }}>
                 <Plus className="mr-2 h-4 w-4" />
                 Add Course
