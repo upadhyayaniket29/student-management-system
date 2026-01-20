@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Textarea } from '@/components/ui/textarea'
 import { galleryAPI, authAPI } from '@/lib/api'
+import { getFileUrl } from '@/lib/fileUtils'
 import toast from 'react-hot-toast'
 import { Skeleton } from '@/components/ui/skeleton'
 import { Image as ImageIcon, Plus, Trash2, Edit, Upload, Link as LinkIcon } from 'lucide-react'
@@ -184,7 +185,7 @@ export default function GalleryPage() {
     if (imageUrl.startsWith('http')) {
       return imageUrl
     }
-    return `http://localhost:5000${imageUrl}`
+    return getFileUrl(imageUrl)
   }
 
   if (loading) {

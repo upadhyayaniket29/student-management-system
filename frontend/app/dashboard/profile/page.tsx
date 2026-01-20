@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { studentAPI, authAPI } from '@/lib/api'
+import { getFileUrl } from '@/lib/fileUtils'
 import toast from 'react-hot-toast'
 import { Skeleton } from '@/components/ui/skeleton'
 import { User, Camera, Upload } from 'lucide-react'
@@ -93,7 +94,7 @@ export default function ProfilePage() {
 
   const getProfilePictureUrl = () => {
     if (previewUrl) return previewUrl
-    if (user?.profilePicture) return `http://localhost:5000${user.profilePicture}`
+    if (user?.profilePicture) return getFileUrl(user.profilePicture)
     return null
   }
 

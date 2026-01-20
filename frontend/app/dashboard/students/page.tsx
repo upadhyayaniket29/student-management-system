@@ -11,6 +11,8 @@ import { Skeleton } from '@/components/ui/skeleton'
 import { Users, UserCheck, UserX, Eye, Mail, Calendar, User } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 
+import { getFileUrl } from '@/lib/fileUtils'
+
 export default function StudentsPage() {
   const [students, setStudents] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
@@ -49,7 +51,7 @@ export default function StudentsPage() {
 
   const getProfilePictureUrl = (profilePicture: string | null) => {
     if (profilePicture) {
-      return `http://localhost:5000${profilePicture}`
+      return getFileUrl(profilePicture)
     }
     return null
   }
